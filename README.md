@@ -1,6 +1,6 @@
-# trabalho_final
+# Trabalho Final da disciplina Optativa II
 
-A new Flutter project.
+Essa aplicação visa auxiliar a população no combate à COVID 19 apresentando informações relevantes sobre a doença utilizando o Flutter.
 
 ## Getting Started
 
