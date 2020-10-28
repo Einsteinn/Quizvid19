@@ -1,5 +1,5 @@
-import 'package:trabalho_final/view/lista_curso.dart';
 import 'package:flutter/material.dart';
+import 'package:trabalho_final/view/quiz.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,14 +11,14 @@ class CursoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Colors.orange[800],
-        accentColor: Colors.orange[800],
+        primaryColor: Colors.blue[300],
+        accentColor: Colors.blue[300],
         buttonTheme: ButtonThemeData(
-          buttonColor: Colors.orange[800],
+          buttonColor: Colors.blue[300],
           textTheme: ButtonTextTheme.primary,
         ),
       ),
-      home: ListaCurso(),
+      home: QuizPage(),
     );
   }
 }
