@@ -36,6 +36,9 @@ class _QuizPageState extends State<QuizPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[900],
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
         title: Text(
           'QUIZVID-19',
           style: TextStyle(
@@ -46,7 +49,7 @@ class _QuizPageState extends State<QuizPage> {
         centerTitle: true,
         elevation: 20.0,
       ),
-      backgroundColor: Colors.blue[100],
+      backgroundColor: Color.fromRGBO(233, 243, 255, 1),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -79,7 +82,7 @@ class _QuizPageState extends State<QuizPage> {
 
   _buildQuestion(String question) {
     return Expanded(
-      flex: 5,
+      flex: 3,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 16.0),
         child: Card(
@@ -91,21 +94,35 @@ class _QuizPageState extends State<QuizPage> {
           color: Colors.white.withOpacity(0.7),
           child: Column(
             children: [
-              ListTile(
-                title: Text(
-                    'PERGUNTA (${_scoreKeeper.length + 1}/${_controller.questionsNumber + 1}):'),
-                //subtitle: ),
-              ),
-              Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    _controller.getQuestion(),
-                    textAlign: TextAlign.center,
+              Expanded(
+                flex: 1,
+                child: ListTile(
+                  title: Text(
+                    'PERGUNTA (${_scoreKeeper.length + 1}/${_controller.questionsNumber}):',
                     style: TextStyle(
-                      fontSize: 30.0,
-                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
                     ),
-                  )),
+                  ),
+
+                  //subtitle: ),
+                ),
+              ),
+              Expanded(
+                flex: 9,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(
+                    child: Text(
+                      _controller.getQuestion(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -116,7 +133,7 @@ class _QuizPageState extends State<QuizPage> {
   _buildAnswerButton(String answer) {
     return Expanded(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.0),
+        padding: EdgeInsets.symmetric(vertical: 20.0),
         child: GestureDetector(
           child: Container(
             padding: EdgeInsets.all(4.0),
@@ -148,7 +165,8 @@ class _QuizPageState extends State<QuizPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 20.0,
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -186,6 +204,7 @@ class _QuizPageState extends State<QuizPage> {
 
   _buildScoreKeeper() {
     return Expanded(
+      flex: 1,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 20.0),
         child: Wrap(
