@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-//import 'package:quiz_covid19/models/question.dart';
+import 'package:trabalho_final/model/question.dart';
 
 class ResultDialog {
   static Future show(
     BuildContext context, {
-    //@required Question question,
+    @required Question question,
     @required bool correct,
     @required Function onNext,
   }) {
@@ -31,8 +31,7 @@ class ResultDialog {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Pergunta',
-                //question.question,
+                question.question,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -49,8 +48,7 @@ class ResultDialog {
                 ),
               ),
               Text(
-                'Pergunta 1',
-                //question.answer1,
+                question.answer1,
                 style: TextStyle(
                   color: Colors.white70,
                 ),
