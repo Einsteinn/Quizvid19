@@ -2,6 +2,20 @@
 
 Essa aplicação visa auxiliar a população no combate à COVID 19 apresentando informações relevantes sobre a doença utilizando o Flutter.
 
+## Screenshots
+
+<p align="center">
+    <img src="screenshot/screen_01.jpeg" width="250"/>
+    <img src="screenshot/screen_02.jpeg" width="250"/>
+    <img src="screenshot/screen_03.jpeg" width="250"/>
+</p>
+
+<p align="center">
+    <img src="screenshot/screen_04.jpeg" width="250"/>
+    <img src="screenshot/screen_05.jpeg" width="250"/>
+    <img src="screenshot/screen_06.jpeg" width="250"/>
+</p>
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
