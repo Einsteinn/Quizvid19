@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:trabalho_final/component/centered_circular_progress.dart';
-// import 'package:trabalho_final/component/centered_message.dart';
-// import 'package:trabalho_final/component/finish_dialog.dart';
-import 'package:trabalho_final/component/result_dialog.dart';
-//import 'package:quiz_covid19/controllers/quiz_controller.dart';
+import 'package:trabalho_final/components/centered_circular_progress.dart';
+import 'package:trabalho_final/components/centered_message.dart';
+import 'package:trabalho_final/components/finish_dialog.dart';
+import 'package:trabalho_final/components/result_dialog.dart';
+import 'package:trabalho_final/controller/quiz_controller.dart';
 
 class QuizPage extends StatefulWidget {
   @override
@@ -12,7 +12,7 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  //final _controller = QuizController();
+  final _controller = QuizController();
   List<Widget> _scoreKeeper = [];
 
   bool _loading = true;
@@ -24,7 +24,7 @@ class _QuizPageState extends State<QuizPage> {
   }
 
   Future<void> _initialize() async {
-    //await _controller.initialize();
+    await _controller.initialize();
 
     setState(() {
       _loading = false;
@@ -42,7 +42,7 @@ class _QuizPageState extends State<QuizPage> {
             fontSize: 25.0,
             color: Colors.white,
           ),
-        ), //( ${_scoreKeeper.length}/${_controller.questionsNumber} )'),
+        ),
         centerTitle: true,
         elevation: 20.0,
       ),
@@ -59,19 +59,19 @@ class _QuizPageState extends State<QuizPage> {
   _buildQuiz() {
     if (_loading) return CenteredCircularProgress();
 
-    /* if (_controller.questionsNumber == 0)
+    if (_controller.questionsNumber == 0)
       return CenteredMessage(
         'Sem questões',
         icon: Icons.warning,
-      ); */
+      );
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        _buildQuestion("_controller.getQuestion()"),
-        _buildAnswerButton("_controller.getAnswer1()"),
-        _buildAnswerButton("_controller.getAnswer2()"),
+        _buildQuestion(_controller.getQuestion()),
+        _buildAnswerButton(_controller.getAnswer1()),
+        _buildAnswerButton(_controller.getAnswer2()),
         _buildScoreKeeper(),
       ],
     );
@@ -92,13 +92,14 @@ class _QuizPageState extends State<QuizPage> {
           child: Column(
             children: [
               ListTile(
-                title: const Text('PERGUNTA'),
+                title: Text(
+                    'PERGUNTA (${_scoreKeeper.length + 1}/${_controller.questionsNumber + 1}):'),
                 //subtitle: ),
               ),
               Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    "Pergunta",
+                    _controller.getQuestion(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 30.0,
@@ -153,12 +154,10 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
           onTap: () {
-            //bool correct = _controller.correctAnswer(answer);
-            bool correct = true;
+            bool correct = _controller.correctAnswer(answer);
             ResultDialog.show(
               context,
-
-              //question: _controller.question,
+              question: _controller.question,
               correct: correct,
               onNext: () {
                 setState(() {
@@ -169,13 +168,13 @@ class _QuizPageState extends State<QuizPage> {
                     ),
                   );
 
-                  /* if (_scoreKeeper.length < _controller.questionsNumber) {
+                  if (_scoreKeeper.length < _controller.questionsNumber) {
                     _controller.nextQuestion();
                   } else {
                     FinishDialog.show(context,
                         hitNumber: _controller.hitNumber,
                         questionNumber: _controller.questionsNumber);
-                  } */
+                  }
                 });
               },
             );
@@ -187,9 +186,14 @@ class _QuizPageState extends State<QuizPage> {
 
   _buildScoreKeeper() {
     return Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: _scoreKeeper,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 20.0),
+        child: Wrap(
+          spacing: 10,
+          alignment: WrapAlignment.center,
+          direction: Axis.horizontal, // we need to specify the direction
+          children: _scoreKeeper,
+        ),
       ),
     );
   }

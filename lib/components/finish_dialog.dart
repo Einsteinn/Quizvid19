@@ -14,7 +14,7 @@ class FinishDialog {
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: Colors.grey.shade900,
+          backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
@@ -37,7 +37,7 @@ class FinishDialog {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(height: 8),
@@ -46,13 +46,13 @@ class FinishDialog {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
               Text(
                 'Que tal tentar mais uma vez? Quem sabe você consegue acertar todas na próxima!',
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: Colors.grey[900],
                 ),
               ),
             ],
@@ -61,7 +61,7 @@ class FinishDialog {
             FlatButton(
               child: const Text('COMPARTILHAR'),
               onPressed: () {
-                Share.share('Quiz COVID-29. Você acertou $hitNumber de 10!');
+                Share.share('Quiz COVID-29. Você acertou $hitNumber de 20!');
               },
             ),
             FlatButton(

@@ -13,7 +13,7 @@ class ResultDialog {
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: Colors.grey.shade900,
+          backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
@@ -35,7 +35,7 @@ class ResultDialog {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(height: 8),
@@ -50,7 +50,7 @@ class ResultDialog {
               Text(
                 question.answer1,
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: Colors.grey[800],
                 ),
               ),
             ],
