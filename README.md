@@ -1,7 +1,7 @@
-# Trabalho Final da disciplina Optativa II
+# Quizvid-19
 
-Essa aplicação visa auxiliar a população no combate à COVID 19 apresentando informações relevantes sobre a doença utilizando o Flutter.
-O aplicativo é um Quiz sobre o que é Verdade e o que é Mentira, em relação as tantas "informações" sobre o Corona Vírus.
+Esta aplicação visa auxiliar a população no combate à COVID 19 apresentando informações relevantes sobre a doença utilizando o Flutter.
+O aplicativo é um Quiz sobre o que é Verdade e o que é Mentira, em relação às tantas "informações" sobre o Corona Vírus.
 
 ## Capturas de Tela
 
